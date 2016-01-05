@@ -1,3 +1,29 @@
-<h2 id="title">Welcome to Ember</h2>
+<div class="container">
 
-{{outlet}}
+	<h2 id="title">Customers</h2>
+
+	{{ customer-input newCustomer="newCustomer" }}
+
+	<nav class="navbar well">
+
+		<ul class="nav nav-pills">
+
+			{{#link-to 'subscriptions' tagName="li" href=false}}
+			    {{#link-to 'subscriptions' bubbles=false}}
+			        Subscriptions
+			    {{/link-to}}
+			{{/link-to}}
+
+			{{#link-to 'trials' tagName="li" href=false}}
+			    {{#link-to 'trials' bubbles=false}}
+			        Trials
+			    {{/link-to}}
+			{{/link-to}}
+
+		</ul>
+	</nav>
+
+
+	{{outlet}}
+
+</div>

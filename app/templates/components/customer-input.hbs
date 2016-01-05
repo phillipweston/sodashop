@@ -1,0 +1,19 @@
+<form class="form-inline well">
+	<div class="form-group">
+		<label class="sr-only" for="add user form">Name</label>
+		{{ input type="text" value=newUser.name placeholder="Full Name" class="form-control" }}
+	</div>
+
+	<div class="form-group">
+		<label class="sr-only" for="add user form">Location</label>
+		{{ input type="text" value=newUser.location placeholder="Location" class="form-control" }}
+	</div>
+
+	<div class="checkbox">
+		<label>
+			{{ input type="checkbox" checked=newUser.isSubscribed }} Subscribed
+		</label>
+	</div>
+
+	<button {{ action "submit" newUser }} class="btn btn-default"> Add Customer </button>
+</form>
