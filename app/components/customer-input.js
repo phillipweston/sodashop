@@ -5,14 +5,15 @@ export default Ember.Component.extend({
 	newUser: {},
 
 	actions: {
-		submit: function(customer) {
+		add: function(customer) {
 
-			this.sendAction('newCustomer', customer);
+			console.log('customer-input add');
+			
+			this.sendAction('add', customer);
 
 			this.set('newUser.name', null);
 			this.set('newUser.isSubscribed', null);
 			this.set('newUser.location', null);
-
 		}
 	}
 

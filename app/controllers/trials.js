@@ -6,5 +6,4 @@ export default Ember.Controller.extend({
 		return this.get('model').filterBy('isSubscribed', false);
 	})
 	
-
 });

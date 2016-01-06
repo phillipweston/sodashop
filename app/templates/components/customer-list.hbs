@@ -27,7 +27,7 @@
           <td>{{moment-from-now customer.expirationDate}}</td>
         {{/if}}
       
-        <td> {{ delete-customer customer=customer deleteCustomer="deleteCustomer"}} </td>
+        <td> {{ delete-customer customer=customer delete=(action this.attrs.delete) }} </td>
 
       </tr>
     {{/each}}

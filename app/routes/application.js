@@ -3,7 +3,9 @@ import Ember from 'ember';
 export default Ember.Route.extend({
 
 	actions: {
-		newCustomer: function(params) {
+		add: function(params) {
+			console.log('add application.js route');
+
 			var isSubscribed = !!params.isSubscribed;
 			var self = this;
 
@@ -27,8 +29,7 @@ export default Ember.Route.extend({
 				})
 		},
 
-		deleteCustomer: function(customer) {
-			console.log('destroy', customer);
+		delete: function(customer) {
 			customer.destroyRecord();
 		}
 	}
