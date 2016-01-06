@@ -14,7 +14,6 @@ export default Ember.Component.extend({
 			this.sendAction('add', customer);
 
 			this.set('newUser.name', null);
-			this.set('newUser.isSubscribed', null);
 			this.set('newUser.location', null);
 		}
 	}

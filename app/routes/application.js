@@ -4,22 +4,15 @@ export default Ember.Route.extend({
 
 	actions: {
 		add: function(params) {
-			var isSubscribed = !!params.isSubscribed;
-			var self = this;
-
+			
 			var customer = this.store.createRecord('customer', {
 				name: params.name,
 				location: params.location,
-				isSubscribed: isSubscribed
+				isSubscribed: params.isSubscribed,
+				subscriptionDuration: params.isSubscribed ? 1 : 0
 			});
 
-			customer.save()
-				.then(function() {
-					console.log('customer saved');
-				})
-				.catch(error => {
-					console.log(error);
-				});
+			customer.save();
 		},
 
 		delete: function(customer) {
@@ -32,7 +25,6 @@ export default Ember.Route.extend({
 			if (customer.get('isSubscribed')) {
 				customer.set('subscriptionDuration', 1); // 1 month
 				customer.set('subscriptionDate', new Date());
-
 			}
 			else {
 				customer.set('subscriptionDuration', 0); 
