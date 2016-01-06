@@ -4,8 +4,6 @@ export default Ember.Route.extend({
 
 	actions: {
 		add: function(params) {
-			console.log('add application.js route');
-
 			var isSubscribed = !!params.isSubscribed;
 			var self = this;
 
@@ -17,22 +15,21 @@ export default Ember.Route.extend({
 
 			customer.save()
 				.then(function() {
-					if (isSubscribed) {
-						self.transitionTo('subscriptions');
-					}
-					if (!isSubscribed) {
-						self.transitionTo('trials');
-					}
+					console.log('customer saved');
 				})
 				.catch(error => {
-					console.log(error.errors);
-				})
+					console.log(error);
+				});
 		},
 
 		delete: function(customer) {
 			customer.destroyRecord();
+		},
+
+		toggleSubscribe: function(customer) {
+			customer.set('isSubscribed', !customer.get('isSubscribed'));
+			customer.save();
 		}
 	}
-
 
 });

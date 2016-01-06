@@ -9,11 +9,5 @@
 		{{ input type="text" value=newUser.location placeholder="Location" class="form-control" }}
 	</div>
 
-	<div class="checkbox">
-		<label>
-			{{ input type="checkbox" checked=newUser.isSubscribed }} Subscribed
-		</label>
-	</div>
-
 	<button {{ action "add" newUser }} class="btn btn-default"> Add Customer </button>
 </form>

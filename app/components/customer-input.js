@@ -7,8 +7,10 @@ export default Ember.Component.extend({
 	actions: {
 		add: function(customer) {
 
-			console.log('customer-input add');
-			
+			var route = this.container.lookup("router:main").get('currentRouteName');
+
+			customer.isSubscribed = (route === 'subscriptions');
+
 			this.sendAction('add', customer);
 
 			this.set('newUser.name', null);

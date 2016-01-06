@@ -10,7 +10,6 @@
           <th>Expires</th>
       {{/if}}
 
-      <th>Delete</th>
 
     </tr>
   </thead>
@@ -18,13 +17,23 @@
   <tbody>
     {{#each customers as |customer|}}
       <tr>
-        <td>{{customer.name}}</td>
-        <td>{{customer.location}}</td>
-        <td>{{moment-format customer.signupDate "MM/DD/YYYY"}}</td>
+        <td> {{customer.name}} </td>
+        <td> {{customer.location}} </td>
+        <td> {{moment-format customer.signupDate "MM/DD/YYYY"}} </td>
 
         {{#if showSubscriberInfo}}
-          <td>{{moment-format customer.subscriptionDate "MM/DD/YYYY"}}</td>
-          <td>{{moment-from-now customer.expirationDate}}</td>
+
+          <td> {{moment-format customer.subscriptionDate "MM/DD/YYYY"}} </td>
+          <td> {{moment-from-now customer.expirationDate}} </td>
+
+          <td> 
+            {{ subscribe-button class="pull-right" text="Unsubscribe" customer=customer toggleSubscribe=(action this.attrs.toggleSubscribe) }} 
+          </td>
+
+        {{else}}
+
+          <td> {{ subscribe-button class="pull-right" text="Subscribe" customer=customer toggleSubscribe=(action this.attrs.toggleSubscribe) }} </td>
+
         {{/if}}
       
         <td> {{ delete-customer customer=customer delete=(action this.attrs.delete) }} </td>
