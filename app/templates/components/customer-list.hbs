@@ -8,6 +8,8 @@
       {{#if showSubscriberInfo}}
           <th>Subscriber Since</th>
           <th>Expires</th>
+      {{else}}
+          <th>Expired</th>
       {{/if}}
 
 
@@ -31,6 +33,7 @@
           </td>
 
         {{else}}
+          <td> {{moment-from-now customer.expirationDate}} </td>
 
           <td> {{ subscribe-button class="pull-right" text="Subscribe" customer=customer toggleSubscribe=(action this.attrs.toggleSubscribe) }} </td>
 

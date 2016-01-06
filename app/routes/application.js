@@ -28,6 +28,16 @@ export default Ember.Route.extend({
 
 		toggleSubscribe: function(customer) {
 			customer.set('isSubscribed', !customer.get('isSubscribed'));
+
+			if (customer.get('isSubscribed')) {
+				customer.set('subscriptionDuration', 1); // 1 month
+				customer.set('subscriptionDate', new Date());
+
+			}
+			else {
+				customer.set('subscriptionDuration', 0); 
+			}
+
 			customer.save();
 		}
 	}
