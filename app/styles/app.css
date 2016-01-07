@@ -1,0 +1,11 @@
+body {
+	background-color: #EDEDED;
+}
+
+hr {
+	border-top: 1px solid #E1E1E1;
+}
+
+.re-positioned {
+	margin: 20px 0 0 20px;
+}
